@@ -8,4 +8,4 @@ let visitSchema = new Schema ({
 })
 
 const Visit = mongoose.model('Visit', visitSchema);
-module.exports = Movies;
+module.exports = Visit;
