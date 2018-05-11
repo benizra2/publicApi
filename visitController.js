@@ -4,15 +4,13 @@ module.exports = {
   //post visit using userId and name as key
   postVisit(req, res) {
     Visit.create(req.body, (err, result) => {
-      console.log('this is the document to be created', req.body);
       if (err) return res.status(418).send('Error, did not go through');
-
       //if successful, returns specified object. Because I'm using mongoDB, 
       //I'm leveraging mongoDB's self-generated _id assigned to each doc as my visitId
       res.send( { visitId:result._id} );
     })
   }, 
-  
+
   //expected values either req.visitId or ( req.userId && searchString );
   getVisit(req, res) {
     //obtains URL params
@@ -29,18 +27,44 @@ module.exports = {
     let findObj = {};
     if (params.visitId) {
       findObj._id = params.visitId;
+      Visit.find(findObj, (err, result) => {
+        if (err) res.status(418).send('error');
+        res.send(result);
+      });
     //otherwise use userId;
     } else {
       findObj.userId = params.userId;
+      //query findObj in DB; 
+      //sort by _id with -1 means sort => sorts results from newest to oldest based on embedded timestamp in _id
+      Visit.find(findObj).sort({_id: -1}).exec((err, result) => {
+        if (err) res.status(418).send("error");
+        let mostMatched = {};
+        //conduct query on the latest 5 checkIns(locations) of userId;
+        result.slice(0, 5).forEach(eachCheckIn => {
+          //determine if searchString is longer or shorter
+          let longStr; 
+          let shortStr;
+          //assign longStr and short 
+          if (params.searchString.length > eachCheckIn.name.length) {
+            longStr = params.searchString;
+            shortStr = eachCheckIn.name;
+          } else {
+            longStr = eachCheckIn.name;
+            shortStr = params.searchString;
+          }
+          //shortStr will be checked in longStr for a match (CASE INSENSITIVE); if there is set userId, name, and _id to 
+          // object with key-val. values from eachCheckIn object
+          if (longStr.toLowerCase().indexOf(shortStr.toLowerCase()) > -1) {
+            mostMatched.userId = eachCheckIn.userId;
+            mostMatched.name = eachCheckIn.name;
+            mostMatched.visitId = eachCheckIn._id;
+            //return array containing object with matched info;
+            return res.send([mostMatched]);
+          }
+        })
+        //otherwise, return empty array with no match;
+        res.send([]);
+      });
     }
-
-    //query findObj in DB; 
-    //sort by _id with -1 means sort => sorts results from newest to oldest based on embedded timestamp in _id
-    Visit.find({findObj}).sort({_id: -1}).exec((err, result) => {
-      if (err) res.status(418).send("error");
-      console.log("this is the result", result);
-      
-      res.send(result);
-    });
   }
 }
