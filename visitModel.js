@@ -7,5 +7,5 @@ let visitSchema = new Schema ({
   "name": {type: String, required: true},
 })
 
-let Movies = mongoose.model('Movie', movieSchema);
+let Movies = mongoose.model('Visit', visitSchema);
 module.exports = Movies;
