@@ -23,6 +23,7 @@ app.use(bodyParser.json());
 
 //define requests with appropriate middleware
 app.post('/visit', visitController.postVisit);
+app.get('/visit', visitController.getVisit);
 
-
+//set up listening to port 3000
 app.listen(PORT, () => console.log(`listening to PORT ${PORT}`));
