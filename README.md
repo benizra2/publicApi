@@ -2,9 +2,9 @@
 
 **Public API endpoint to store userId (name of user) and name (of place)**
 
-**Documentation:**
+##**Documentation:**
 
-  ***1. POST /visit***
+ ## ***1. POST /visit***
      ***a. Accepts POST requests with ‘application/json’ types***
      ***b. The schema for submitted objects is as follows:***
      ***c. userId - the user that is submitting the location***
@@ -12,7 +12,7 @@
      
   ***Returns a visitId which can be referenced in the GET. Visit IDs are globally unique to the location submission***
   
-  ***2. GET /visit***
+ ## ***2. GET /visit***
       ***a. Can be queried with either of the following patterns:***
         ***i. visitId*** 
         ***ii. Both of the following two query params:*** 
