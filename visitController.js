@@ -30,6 +30,7 @@ module.exports = {
       Visit.find(findObj, (err, result) => {
         if (err) res.status(418).send('error');
         res.send(result);
+        return;
       });
     //otherwise use userId;
     } else {
@@ -58,8 +59,9 @@ module.exports = {
             mostMatched.userId = eachCheckIn.userId;
             mostMatched.name = eachCheckIn.name;
             mostMatched.visitId = eachCheckIn._id;
-            //return array containing object with matched info;
+            //array containing object with matched info;
             res.send([mostMatched]);
+            return;
           }
         })
         //otherwise, return empty array with no match;
