@@ -26,6 +26,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 //define requests with appropriate middleware
+app.get('/', ()=> res.send("hello test"));
 app.post('/visit', visitController.postVisit);
 app.get('/visit', visitController.getVisit);
 
