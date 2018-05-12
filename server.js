@@ -18,7 +18,7 @@ mongoose.Promise = global.Promise;
 mongoose.connect(mongoURI);
 db.on('error', (err) => { console.log('MongoDB connection error: ', err); });
 db.once('open', () => {
-  console.log('Connected to Database');
+  console.log('Connected to Mongo Database via Emlab');
 });
 
 //use bodyParser to parse req body 
