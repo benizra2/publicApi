@@ -59,7 +59,7 @@ module.exports = {
             mostMatched.name = eachCheckIn.name;
             mostMatched.visitId = eachCheckIn._id;
             //return array containing object with matched info;
-            return res.send([mostMatched]);
+            res.send([mostMatched]);
           }
         })
         //otherwise, return empty array with no match;

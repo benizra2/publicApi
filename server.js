@@ -13,6 +13,7 @@ app.set('port', (process.env.PORT || 3000));
 const mongoURI = process.env.MONGO_URI || 'mongodb://current:current@ds243335.mlab.com:43335/benizra';
 
 //connect to monggoose
+//using mongoose.Promise to remove deprecating warning
 mongoose.Promise = global.Promise;
 mongoose.connect(mongoURI, { useMongoClient: true });
 db.on('error', (err) => { console.log('MongoDB connection error: ', err); });
