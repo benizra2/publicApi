@@ -14,7 +14,7 @@ const mongoURI = process.env.MONGO_URI || 'mongodb://current:current@ds243335.ml
 
 //connect to monggoose
 mongoose.connect(mongoURI, { useMongoClient: true });
-db.on('error', console.error.bind(console, 'connection error:'));
+db.on('error', (err) => { console.log('MongoDB connection error: ', err); });
 db.once('open', () => {
   console.log('Connected to Database');
 });
