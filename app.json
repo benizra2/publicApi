@@ -1,0 +1,6 @@
+{
+  "name": "mypublic-api", 
+  "description": "an api that is linked to mongoDB",
+  "repository": "https://github.com/benizra2/publicApi", 
+  "keywords": ["node", "express", "mongoDB", "mongoose"]
+}

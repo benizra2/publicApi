@@ -10,8 +10,7 @@ const visitController = require('./visitController');
 app.set('port', (process.env.PORT || 3000));
 
 //declare my local Mongo URI
-const mongoURI = process.env.MONGO_URI || 'mongodb://suarez.ben12:developer12@ds243335.mlab.com:43335/benizra';
-
+const mongoURI = process.env.MONGO_URI || 'mongodb://current:current@ds243335.mlab.com:43335/benizra';
 
 //connect to monggoose
 mongoose.connect(mongoURI, { useMongoClient: true });
