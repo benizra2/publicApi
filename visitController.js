@@ -30,7 +30,6 @@ module.exports = {
       Visit.find(findObj, (err, result) => {
         if (err) res.status(418).send('error');
         res.send(result);
-        return;
       });
     //otherwise use userId;
     } else {
