@@ -6,9 +6,12 @@ const db = mongoose.connection;
 const bodyParser = require('body-parser');
 const visitController = require('./visitController');
 
+//set port for heroku purposes
+app.set('port', (process.env.PORT || 3000));
+
 //declare my local Mongo URI
 const mongoURI = process.env.MONGO_URI || 'mongodb://suarez.ben12:developer12@ds243335.mlab.com:43335/benizra';
-const PORT = 3000;
+
 
 //connect to monggoose
 mongoose.connect(mongoURI, { useMongoClient: true });
@@ -26,4 +29,5 @@ app.post('/visit', visitController.postVisit);
 app.get('/visit', visitController.getVisit);
 
 //set up listening to port 3000
-app.listen(PORT, () => console.log(`listening to PORT ${PORT}`));
+app.listen(app.get('port'), () => console.log('Node app is running on port', app.get('port')));
+// app.listen(PORT, () => console.log(`listening to PORT ${PORT}`));

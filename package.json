@@ -1,14 +1,20 @@
 {
-  "name": "publicApi",
+  "name": "mypublic-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "an api that is linked to mongoDB",
   "main": "server.js",
   "scripts": {
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Ben Suarez",
+  "license": "MIT",
   "dependencies": {
+    "express":"*",
     "body-parser": "^1.18.2"
+  }, 
+  "engines": {
+    "node": "v8.9.1", 
+    "npm":"5.5.1"
   }
 }
