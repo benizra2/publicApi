@@ -15,7 +15,7 @@ const mongoURI = process.env.MONGO_URI || 'mongodb://current:current@ds243335.ml
 //connect to monggoose
 //using mongoose.Promise to remove deprecating warning
 mongoose.Promise = global.Promise;
-mongoose.connect(mongoURI, { useMongoClient: true });
+mongoose.connect(mongoURI);
 db.on('error', (err) => { console.log('MongoDB connection error: ', err); });
 db.once('open', () => {
   console.log('Connected to Database');
