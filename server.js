@@ -29,4 +29,3 @@ app.get('/visit', visitController.getVisit);
 
 //set up listening to port 3000
 app.listen(app.get('port'), () => console.log('Node app is running on port', app.get('port')));
-// app.listen(PORT, () => console.log(`listening to PORT ${PORT}`));
