@@ -22,5 +22,5 @@
                1. userId (string)
                2. searchString- A string which is attempted to be matched over the 5 most recent locations the user has visited.
    
-   ***Returns an array of object (that was submitted to the POST) that closely matches searchString. If no match, returns empty array***
+   ***Returns an array of object (one among five most recent submissions to POST with same nameId) that has a name (location) closely matches searchString. If no match, returns empty array***
 
