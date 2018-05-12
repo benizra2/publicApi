@@ -13,6 +13,7 @@ app.set('port', (process.env.PORT || 3000));
 const mongoURI = process.env.MONGO_URI || 'mongodb://current:current@ds243335.mlab.com:43335/benizra';
 
 //connect to monggoose
+mongoose.Promise = global.Promise;
 mongoose.connect(mongoURI, { useMongoClient: true });
 db.on('error', (err) => { console.log('MongoDB connection error: ', err); });
 db.once('open', () => {
