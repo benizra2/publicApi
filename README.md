@@ -20,7 +20,7 @@
         i. visitId (string)
         ii. Both of the following two query params: 
                1. userId (string)
-               2. searchString- A string which is attempted to be matched over the 5 most recent locations the user has visited. The matching should be fuzzy, and case insensitive
+               2. searchString- A string which is attempted to be matched over the 5 most recent locations the user has visited.
    
-   ***Returns an array of object that is submitted to the POST that closely matches searchString. If no match, returns empty array***
+   ***Returns an array of object (that was submitted to the POST) that closely matches searchString. If no match, returns empty array***
 
