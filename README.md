@@ -22,5 +22,5 @@
                1. userId
                2. searchString- A string which is attempted to be matched over the 5 most recent locations the user has visited. The matching should be fuzzy, and case insensitive
    
-   ***Returns an array of object that is submitted to the POST that closely matches searchString. If no match, return empty array***
+   ***Returns an array of object that is submitted to the POST that closely matches searchString. If no match, returns empty array***
 
