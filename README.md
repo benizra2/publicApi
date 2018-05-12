@@ -2,7 +2,7 @@
 
 **Public API endpoint to store userId (name of user) and name (of place)**
 
-##Documentation:##
+## Documentation: ##
 
  ## ***1. POST /visit***
      a. Accepts POST requests with ‘application/json’ types
