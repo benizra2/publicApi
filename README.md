@@ -1,6 +1,6 @@
 # publicApi
 
-**Public API endpoint to store userId (name of user) and name (of place)**
+**Application that demonstrates a publicly accessible API endpoint to store userId (name of user) and name (of location)**
 
 ## Documentation: ##
 
@@ -17,9 +17,9 @@
   
  ## ***2. GET /visit***
      a. Can be queried with either of the following patterns:
-        i. visitId 
+        i. visitId (string)
         ii. Both of the following two query params: 
-               1. userId
+               1. userId (string)
                2. searchString- A string which is attempted to be matched over the 5 most recent locations the user has visited. The matching should be fuzzy, and case insensitive
    
    ***Returns an array of object that is submitted to the POST that closely matches searchString. If no match, returns empty array***
